@@ -1,0 +1,14 @@
+aws-cdk.aws-s3==1.100.0
+aws-cdk.aws-s3-deployment==1.100.0
+aws-cdk.aws-dynamodb==1.100.0
+aws-cdk.aws-lambda==1.100.0
+aws-cdk.aws-apigateway==1.100.0
+aws-cdk.aws-lambda-event-sources==1.100.0
+aws-cdk.aws-secretsmanager==1.100.0
+aws-cdk.aws-rds==1.100.0
+aws-cdk.aws-cloudwatch==1.100.0
+aws-cdk.aws-codecommit==1.100.0
+aws-cdk.aws-codebuild==1.100.0
+aws-cdk.aws-codepipeline==1.100.0
+aws-cdk.aws-codepipeline-actions==1.100.0
+aws-cdk.aws-iam==1.100.0
