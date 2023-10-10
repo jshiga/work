@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  restapi-eventhandler-demo
+
+Globals:
+  Api:
+    TracingEnabled: true
+    Cors:
+      AllowOrigin: "'*'"
+      AllowHeaders: "'Content-Type,Authorization,X-Amz-Date'"
+      MaxAge: "'300'"
+    BinaryMediaTypes:
+      - "*~1*"
+    EndpointConfiguration:
+      Type: REGIONAL
+  Function:
+    Timeout: 5
+    Runtime: python3.8
+    Tracing: Active
+    Environment:
+      Variables:
+        LOG_LEVEL: INFO
+        POWERTOOLS_LOGGER_SAMPLE_RATE: 0.1
+        POWERTOOLS_LOGGER_LOG_EVENT: true
+        POWERTOOLS_SERVICE_NAME: restapi-eventhandler-demo
+        NODE_ENV: !Ref NODE_ENV
+
+Resources:
+  RestAPiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./lambda_powertools
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      #Layers:
+      #  - !Sub arn:aws:lambda:${AWS::Region}:017000801446:layer:AWSLambdaPowertoolsPython:11
+      Events:
+        AnyApiEvent:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+            
