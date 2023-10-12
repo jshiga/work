@@ -1,0 +1,40 @@
+version: '3.8'
+
+x-environment: 
+  - &AWS_ACCESS_KEY_ID
+    AWS_ACCESS_KEY_ID=localstack
+x-environment: 
+  - &AWS_SECRET_ACCESS_KEY
+    AWS_SECRET_ACCESS_KEY=localstack
+x-environment: 
+  - &DEFAULT_REGION
+    DEFAULT_REGION=ap-northeast-1
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    ports:
+      - 4566:4566
+    environment:
+      - SERVICE=s3
+      - *AWS_ACCESS_KEY_ID
+      - *AWS_SECRET_ACCESS_KEY
+      - *DEFAULT_REGION
+    volumes:
+      - ./localstack_volumes:/tmp/localstack
+
+  jupyterlab:
+    build: .
+    container_name: jupyterlab
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - *AWS_ACCESS_KEY_ID
+      - *AWS_SECRET_ACCESS_KEY
+      - *DEFAULT_REGION
+    volumes:
+        - '$PWD:/home/jovyan/work'
+    links:
+      - localstack

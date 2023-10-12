@@ -1,0 +1,11 @@
+wheel
+apache-beam
+apache-beam[gcp,interactive,aws,dataframe]
+google-auth
+google-api-core
+google-cloud
+google-cloud-storage
+requests
+urllib3
+boto3
+pandas
