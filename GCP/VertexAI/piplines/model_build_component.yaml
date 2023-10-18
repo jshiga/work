@@ -1,0 +1,15 @@
+name: Build_model_op
+inputs:
+    - {name: n_estimators, type: Integer}
+    - {name: input_dataset_path, type: Dataset, description: '入力ファイル'}
+outputs:
+    - {name: output_model_path, type: Model}
+implementation:
+  container:
+    image: LOCATION/PROJECT-NAME/REPOSITORY-NAME/model-build-op:v2
+    command: [python, model_build.py]
+    args: [
+      --n-estimators, {inputValue: n_estimators},
+      --input-dataset-path, {inputPath: input_dataset_path},
+      --output-model-path, {outputPath: output_model_path},
+    ]    
