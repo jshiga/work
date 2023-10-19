@@ -1,0 +1,42 @@
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=XXXXXXXX' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'XXXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=XXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'XXXXXXXX');
+  </script>
+
+  <script>
+    function submitDL(value) {
+      dataLayer.push({ 'event': 'ga4_email', 'ga4_email': value });
+      document.getElementById('email').value = 'Submitted! See inbox'
+      var button = document.getElementById('email_button');
+    }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=XXXXXXXX" height="0" width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div>
+    <input type="email" name="email" id="email" required minlength="8" placeholder="you@email.com">
+    <button id='email_button' onclick="javascript:submitDL(document.getElementById('email').value);">Send</button>
+  </div>
+</body>
