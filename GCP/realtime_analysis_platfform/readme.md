@@ -8,3 +8,4 @@
 > ngrok config add-authtoken XXXXXXXX
 
 ### 構成図
+![構成図](./アーキテクチャ.png)
