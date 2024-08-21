@@ -1,0 +1,10 @@
+grant_access_roles_to_functional_roles:
+  - access_role: "access_role_schema_a_RW"
+    functional_roles:
+      - "func_role_div_developer"
+
+  - access_role: "access_role_schema_a_R"
+    functional_roles:
+      - "func_role_div_analyst"
+      - "func_role_div_consultant"
+  
