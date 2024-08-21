@@ -1,0 +1,19 @@
+functional_roles:
+  - name: "func_role_div_developer"
+    comment: "Functional Role 開発本部"
+
+  - name: "func_role_div_analyst"
+    comment: "Functional Role 分析本部"
+
+  - name: "func_role_div_consultant"
+    comment: "Functional Role コンサル本部"
+
+
+grant_functional_roles_to_user:
+  - role_name: "func_role_div_developer"
+    users: 
+      - "snowflake_practice_user1"
+
+  - role_name: "func_role_div_consultant"
+    users: 
+      - "snowflake_practice_user2"

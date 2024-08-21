@@ -1,0 +1,47 @@
+access_roles:
+  - name: "access_role_schema_a_RW"
+    comment: "Access Role スキーマA RreadWrite"
+  - name: "access_role_schema_a_R"
+    comment: "Access Role スキーマA RreadOnly"
+
+
+grant_on_object_to_access_role:
+  - name: "DATABASE_SNOWFLAKE_FOR_TF_USAGE"
+    type: "DATABASE"
+    roles:
+      - "access_role_schema_a_RW"
+      - "access_role_schema_a_R"
+    parameter:
+      database_name: "SNOWFLAKE_FOR_TF"
+      privilege: "USAGE"
+
+  - name: "SCHEMA_SCHEMA_A_USAGE"
+    type: "SCHEMA"
+    roles:
+      - "access_role_schema_a_RW"
+      - "access_role_schema_a_R"
+    parameter:
+      database_name: "SNOWFLAKE_FOR_TF"
+      schema_name: "SCHEMA_A"
+      privilege: "USAGE"
+
+  - name: "TABLE_T_SNOWFLAKE_FOR_TF_READ"
+    type: "TABLE"
+    roles:
+      - "access_role_schema_a_R"
+      - "access_role_schema_a_RW"
+    parameter:
+      database_name: "SNOWFLAKE_FOR_TF"
+      schema_name: "SCHEMA_A"
+      table_name: "T_SNOWFLAKE_FOR_TF"
+      privilege: "SELECT"
+
+  - name: "TABLE_T_SNOWFLAKE_FOR_TF_RW"
+    type: "TABLE"
+    roles: 
+      - "access_role_schema_a_RW"
+    parameter:
+      database_name: "SNOWFLAKE_FOR_TF"
+      schema_name: "SCHEMA_A"
+      table_name: "T_SNOWFLAKE_FOR_TF"
+      privilege: "INSERT"
