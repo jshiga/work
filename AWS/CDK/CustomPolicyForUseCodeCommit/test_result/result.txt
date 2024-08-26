@@ -1,0 +1,15 @@
+【IP制限】
+-指定IP以外からのアクセス
+$ git pull
+fatal: unable to access 'https://git-codecommitXXXXXXXXX': The requested URL returned error: 403
+
+-指定IPからのアクセス
+$ git pull
+Already up to date.
+
+【masterブランチへのPush】
+> git push origin master:master
+To https://git-codecommitXXXXXXXXX
+ ! [remote rejected] master -> master (You don't have permission to push changes to this branch.)
+error: failed to push some refs to 'https://git-codecommitXXXXXXXXX'
+
